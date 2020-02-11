@@ -10,7 +10,7 @@ namespace AdminLTE.Common
     {
         public enum Module
         {
-            Home,
+            Inicio,
             About,
             Contact,
             Error,
@@ -18,7 +18,8 @@ namespace AdminLTE.Common
             Register,
             SuperAdmin,
             Role,
-            UserLogs
+            UserLogs,
+            Documentos
         }
 
         public static SidebarMenu AddHeader(string name)
@@ -49,13 +50,22 @@ namespace AdminLTE.Common
 
             switch (module)
             {
-                case Module.Home:
+                case Module.Inicio:
                     return new SidebarMenu
                     {
                         Type = SidebarMenuType.Link,
-                        Name = "Home",
+                        Name = "Inicio",
                         IconClassName = "fa fa-link",
                         URLPath = "/",
+                        LinkCounter = counter,
+                    };
+                case Module.Documentos:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "Documentos",
+                        IconClassName = "fa fa-file",
+                        URLPath = "/Doc/Index",
                         LinkCounter = counter,
                     };
                 case Module.Login:
@@ -71,7 +81,7 @@ namespace AdminLTE.Common
                     return new SidebarMenu
                     {
                         Type = SidebarMenuType.Link,
-                        Name = "Register",
+                        Name = "Registro",
                         IconClassName = "fa fa-user-plus",
                         URLPath = "/Account/Register",
                         LinkCounter = counter,
@@ -107,7 +117,7 @@ namespace AdminLTE.Common
                     return new SidebarMenu
                     {
                         Type = SidebarMenuType.Link,
-                        Name = "User",
+                        Name = "Usuario",
                         IconClassName = "fa fa-link",
                         URLPath = "/SuperAdmin",
                         LinkCounter = counter,
@@ -116,7 +126,7 @@ namespace AdminLTE.Common
                     return new SidebarMenu
                     {
                         Type = SidebarMenuType.Link,
-                        Name = "Role",
+                        Name = "Roles",
                         IconClassName = "fa fa-link",
                         URLPath = "/Role",
                         LinkCounter = counter,

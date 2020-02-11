@@ -1,55 +1,69 @@
 ﻿@model RegisterViewModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Registrar usuario";
 }
+<link href="~/css/Userregister.css" rel="stylesheet" />
+<div class="wrapper fadeInDown">
+    <div class="Allcontent" id="formContent" style="background-color:#B3B3D9;">
 
-<h2>@ViewData["Title"].</h2>
+        
 
-<form id="ccSelectForm" asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
-    <h4>Create a new account.</h4>
-    <hr />
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="FirstName" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="FirstName" class="form-control"/>
-            <span asp-validation-for="FirstName" class="text-danger"></span>
-        </div>
+        <!-- Login Form -->
+        <form id="ccSelectForm" asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+            <div class="m-5">
+
+                <h4 class="fadeIn first ">Informacion Personal</h4>
+                <div class="fadeIn first">
+                    <i class="fas fa-users"></i>
+                </div>
+
+                <!---User Information-->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <div class="">
+                                <input  type="text" asp-for="FirstName" class="fadeIn second form-control" placeholder="Nombre"/>
+                                <span asp-validation-for="FirstName" class="text-danger" ></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <div class="">
+                                <input  type="text" asp-for="LastName" class="fadeIn second form-control" placeholder="Apellido"/>
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-group">
+                        <div class="">
+                            <input asp-for="Email" class="fadeIn fourth form-control" placeholder="Correo Electronico" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+                            <input type="password" asp-for="Password" class="fadeIn six form-control" placeholder="Contraseña" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+                            <input type="password" asp-for="ConfirmPassword" class="fadeIn seven form-control" placeholder="Confirme Contraseña" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div id="formFooter">
+                    <input type="submit" class="fadeIn eight btn btn-default" value="Registrar">
+                </div>
+                    
+        </form>
     </div>
-    <div class="form-group">
-        <label asp-for="LastName" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="LastName" class="form-control" />
-            <span asp-validation-for="LastName" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Email" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Password" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="Password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="ConfirmPassword" class="form-control" />
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <button type="submit" class="btn btn-default">Register</button>
-        </div>
-    </div>
-</form>
+</div>
 
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }

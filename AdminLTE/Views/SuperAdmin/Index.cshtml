@@ -1,17 +1,20 @@
 ﻿<link rel="stylesheet" href="~/lib/datatables/css/dataTables.bootstrap4.min.css" asp-append-version="true" />
+<link href="~/lib/plugins/datatables-bs4/css/dataTables.bootstrap4.css" rel="stylesheet" asp-append-version="true" />
 <script src="~/lib/datatables/js/jquery.dataTables.min.js" asp-append-version="true"></script>
 <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js" asp-append-version="true"></script>
+<script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.js" asp-append-version="true"></script>
+<script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js" asp-append-version="true"></script>
 
 @model IEnumerable<ApplicationUser>
 @{
     ViewData["Title"] = "User Accounts";
 }
 
-<h2>@ViewData["Title"].</h2>
+<h2>@ViewData["Title"]</h2>
 
 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
-<table class="table table-condensed table-bordered" id="myTable">
+<table class="table table-condensed table-bordered table-striped" id="myTable">
     <thead>
         <tr>
             <th>ID</th>
@@ -48,8 +51,7 @@
     </tbody>
 </table>
 
-<a class="btn btn-primary" asp-action="Create">Create</a>
-<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Home</a>
+<a class="btn btn-primary" asp-controller="Account" asp-action="Register">Nuevo Usuario</a>
 
 <script>
     $(document).ready(function () {
