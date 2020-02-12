@@ -38,7 +38,7 @@
             {
                 <tr>
                     <td>@user.Id</td>
-                    <td>@user.UserName</td>
+                    <td>@user.FirstName @user.LastName</td>
                     <td>@user.Email</td>
                     <td>
                         <a class="btn btn-success" asp-controller="SuperAdmin" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
