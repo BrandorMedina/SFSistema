@@ -121,6 +121,7 @@ namespace AdminLTE
             //});
 
             // Populate default user admin
+
             DataSeed.Seed(app.ApplicationServices).Wait();
         }
     }

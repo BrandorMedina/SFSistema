@@ -55,7 +55,7 @@ namespace AdminLTE.Common
                     {
                         Type = SidebarMenuType.Link,
                         Name = "Inicio",
-                        IconClassName = "fa fa-link",
+                        IconClassName = "fa fa-home",
                         URLPath = "/",
                         LinkCounter = counter,
                     };

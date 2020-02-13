@@ -57,7 +57,8 @@
                     </div>
                     <div class="form-group">
                         <label>Contraseña</label>
-                        <input asp-for="Password" placeholder="Password" class="form-control" />
+                        <input asp-for="Password" id="inputPassword" type="password" placeholder="Password" class="form-control" />
+                        <input type="checkbox" onclick="ShowPassword()"> Mostrar Contraseña
                         @*<input type="password" class="form-control" placeholder="Contraseña">*@
                     </div>
                     <div class="form-group">

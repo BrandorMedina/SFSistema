@@ -21,7 +21,17 @@
 |*|  * docCookies.keys()
 |*|
 \*/
-
+function ShowPassword() {
+    var x = document.getElementById("inputPassword");
+    if (x.type === "password")
+    {
+        x.type = "text";
+    }
+    else
+    {
+        x.type = "password";
+    }
+}
 var docCookies = {
     getItem: function (sKey) {
         if (!sKey) { return null; }
@@ -67,6 +77,7 @@ var docCookies = {
 if (docCookies.hasItem("sidebarstate")) {
     $("body").addClass(docCookies.getItem("sidebarstate"));
 }
+
 
 /*global datatable defaults*/
 //$.extend(true, $.fn.dataTable.defaults, {
