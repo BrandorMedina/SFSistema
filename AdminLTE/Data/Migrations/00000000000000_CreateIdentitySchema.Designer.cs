@@ -158,6 +158,12 @@ namespace AdminLTE.Data.Migrations
 
                     b.Property<string>("SecurityStamp");
 
+                    b.Property<string>("Id_documento");
+
+                    b.HasIndex("Id_documento")
+                      .IsUnique()
+                      .HasName("Id_documentoIndex");
+
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")

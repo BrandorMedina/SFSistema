@@ -23,12 +23,10 @@
 \*/
 function ShowPassword() {
     var x = document.getElementById("inputPassword");
-    if (x.type === "password")
-    {
+    if (x.type === "password") {
         x.type = "text";
     }
-    else
-    {
+    else {
         x.type = "password";
     }
 }
@@ -77,7 +75,6 @@ var docCookies = {
 if (docCookies.hasItem("sidebarstate")) {
     $("body").addClass(docCookies.getItem("sidebarstate"));
 }
-
 
 /*global datatable defaults*/
 //$.extend(true, $.fn.dataTable.defaults, {

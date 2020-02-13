@@ -9,7 +9,7 @@ namespace AdminLTE.Models
     public class Docs
     {
         [Required]
-        public int ID_documento { get; set; }
+        public string Id { get; set; }
         public string Tipo_documento { get; set; }
         public string Asunto { get; set; }
         public string Via { get; set; }
