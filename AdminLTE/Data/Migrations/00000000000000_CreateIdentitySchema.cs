@@ -55,12 +55,33 @@ namespace AdminLTE.Data.Migrations
                     SecurityStamp = table.Column<string>(nullable: true),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true),
-                    Id_documento = table.Column<string>(nullable: true)
+                    Id_Documento = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+               name: "AspNetUserDocuments",
+               columns: table => new
+               {
+                   Id = table.Column<int>(nullable: false)
+                   .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                   Id_Usuario = table.Column<string>(nullable: true),
+                   Tipo_Documento = table.Column<string>(nullable: true),
+                   Asunto = table.Column<string>(nullable: true),
+                   Anexo = table.Column<string>(nullable: true),
+                   Via = table.Column<string>(nullable: true),
+                   Fecha_Creado = table.Column<DateTime>(nullable: true),
+                   Fecha_Limite = table.Column<DateTime>(nullable: true),
+                   Descripcion = table.Column<string>(nullable: true),
+                   Firma = table.Column<string>(nullable: true)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_AspNetUserDocuments", x => x.Id);
+               });
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
@@ -149,6 +170,12 @@ namespace AdminLTE.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "UserDocumentsIndex",
+                table: "AspNetUserDocuments",
+                column: "Id",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName");
@@ -212,6 +239,9 @@ namespace AdminLTE.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+              name: "AspNetUserDocuments");
         }
     }
 }

@@ -1,58 +1,77 @@
-﻿
+﻿@model IEnumerable<AdminLTE.Models.Docs>
+
 @{
     ViewData["Title"] = "Index";
-    @section CustomSection{ }
 }
 
 <h1>Index</h1>
 
-<div class="container">
-    <div class="row">
-        <div class="span5">
-            <table class="table table-condensed table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Date registered</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Donna R. Folse</td>
-                        <td>2012/05/06</td>
-                        <td>Editor</td>
-                        <td>
-                            <span class="label label-success">Active</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Emily F. Burns</td>
-                        <td>2011/12/01</td>
-                        <td>Staff</td>
-                        <td><span class="label label-important">Banned</span></td>
-                    </tr>
-                    <tr>
-                        <td>Andrew A. Stout</td>
-                        <td>2010/08/21</td>
-                        <td>User</td>
-                        <td><span class="label">Inactive</span></td>
-                    </tr>
-                    <tr>
-                        <td>Mary M. Bryan</td>
-                        <td>2009/04/11</td>
-                        <td>Editor</td>
-                        <td><span class="label label-warning">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td>Mary A. Lewis</td>
-                        <td>2007/02/01</td>
-                        <td>Staff</td>
-                        <td><span class="label label-success">Active</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_documento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asunto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Via)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Creado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Limite)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asunto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Via)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Creado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Limite)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

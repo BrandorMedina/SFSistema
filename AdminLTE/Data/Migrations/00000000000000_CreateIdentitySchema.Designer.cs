@@ -158,16 +158,15 @@ namespace AdminLTE.Data.Migrations
 
                     b.Property<string>("SecurityStamp");
 
-                    b.Property<string>("Id_documento");
-
-                    b.HasIndex("Id_documento")
-                      .IsUnique()
-                      .HasName("Id_documentoIndex");
-
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
+
+                    b.Property<int>("Id_Documento");
+
+                    b.HasIndex("Id_Documento")
+                      .HasName("Id_DocumentoIndex");
 
                     b.HasKey("Id");
 
@@ -180,6 +179,35 @@ namespace AdminLTE.Data.Migrations
 
                     b.ToTable("AspNetUsers");
                 });
+            modelBuilder.Entity("AdminLTE.Models.Docs", b =>
+            {
+                b.Property<int>("Id")
+                 .ValueGeneratedOnAdd();
+                b.Property<int>("Id_Usuario");
+
+                b.Property<string>("Tipo_Documento");
+
+                b.Property<string>("Asunto");
+
+                b.Property<string>("Anexo");
+
+                b.Property<string>("Via");
+
+                b.Property<DateTimeOffset?>("Fecha_Creado");
+
+                b.Property<DateTimeOffset?>("Fecha_Limite");
+
+                b.Property<string>("Descripcion");
+
+                b.Property<string>("Firma");
+
+                b.HasKey("Id");
+
+                b.HasIndex("Id_Usuario")
+                    .HasName("UserDocumentsIndex");
+
+                b.ToTable("AspNetUserDocuments");
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
@@ -195,6 +223,11 @@ namespace AdminLTE.Data.Migrations
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AdminLTE.Models.ApplicationUser")
+                      .WithMany("Docs")
+                      .HasForeignKey("Id_Usuario")
+                      .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>

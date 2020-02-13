@@ -65,7 +65,7 @@ namespace AdminLTE.Common
                         Type = SidebarMenuType.Link,
                         Name = "Documentos",
                         IconClassName = "fa fa-file",
-                        URLPath = "/Doc/Index",
+                        URLPath = "/Docs/Index",
                         LinkCounter = counter,
                     };
                 case Module.Login:

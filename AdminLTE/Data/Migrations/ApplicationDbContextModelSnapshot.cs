@@ -63,6 +63,11 @@ namespace AdminLTE.Data.Migrations
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
 
+                    b.Property<int>("Id_Documento");
+
+                    b.HasIndex("Id_Documento")
+                      .HasName("Id_DocumentoIndex");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -74,6 +79,41 @@ namespace AdminLTE.Data.Migrations
 
                     b.ToTable("AspNetUsers");
                 });
+
+            modelBuilder.Entity("AdminLTE.Models.Docs", b =>
+            {
+                b.Property<string>("Id");
+
+                b.Property<int>("Id_Usuario");
+
+                b.Property<string>("Tipo_Documento");
+
+                b.Property<string>("Asunto");
+
+                b.Property<string>("Anexo");
+
+                b.Property<string>("Via");
+
+                b.Property<DateTimeOffset?>("Fecha_Creado");
+
+                b.Property<DateTimeOffset?>("Fecha_Limite");
+
+                b.Property<string>("Descripcion");
+
+                b.Property<string>("Firma");
+
+                b.HasOne("AdminLTE.Models.Docs")
+                       .WithMany("ApplicationUser")
+                       .HasForeignKey("Id_Documento")
+                       .OnDelete(DeleteBehavior.Cascade);
+
+                b.HasKey("Id");
+
+                b.HasIndex("Id_Usuario")
+                    .HasName("UserDocumentsIndex");
+
+                b.ToTable("AspNetUserDocuments");
+            });
 
             modelBuilder.Entity("AdminLTE.Models.UserAudit", b =>
                 {
@@ -215,6 +255,11 @@ namespace AdminLTE.Data.Migrations
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AdminLTE.Models.ApplicationUser")
+                       .WithMany("Docs")
+                       .HasForeignKey("Id_Usuario")
+                       .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
