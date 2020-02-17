@@ -11,6 +11,6 @@ namespace AdminLTE.Models
         public string DateRegistered { get; set; }
         public string Position { get; set; }
         public string NickName { get; set; }
-        public string Id_Documento { get; set; }
+        public int Id_Documento { get; set; }
     }
 }

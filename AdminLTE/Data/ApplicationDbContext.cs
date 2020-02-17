@@ -21,6 +21,6 @@ namespace AdminLTE.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public DbSet<AdminLTE.Models.Docs> AspNetUserDocuments { get; set; }
+        public DbSet<Docs> AspNetUserDocuments { get; set; }
     }
 }

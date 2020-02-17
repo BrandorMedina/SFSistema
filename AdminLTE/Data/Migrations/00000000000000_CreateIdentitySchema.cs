@@ -55,11 +55,12 @@ namespace AdminLTE.Data.Migrations
                     SecurityStamp = table.Column<string>(nullable: true),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true),
-                    Id_Documento = table.Column<string>(nullable: true)
+                    Id_Documento = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                   
                 });
 
             migrationBuilder.CreateTable(
@@ -81,7 +82,36 @@ namespace AdminLTE.Data.Migrations
                constraints: table =>
                {
                    table.PrimaryKey("PK_AspNetUserDocuments", x => x.Id);
+                   table.ForeignKey(
+                       name: "FK_AspNetUserDocuments_AspNetUsers_IdUsuario",
+                       column: x => x.Id_Usuario,
+                       principalTable: "AspNetUsers",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.Cascade);
                });
+
+            migrationBuilder.CreateTable(
+              name: "AspNetUserandDocs",
+              columns: table => new
+              {
+                  Id_Usuario = table.Column<string>(nullable: false),
+                  Id_Documento = table.Column<int>(nullable: false)
+              },
+              constraints: table =>
+              {
+                  table.ForeignKey(
+                      name: "FK_AspNetUserandDocs_AspNetUsers_IdUsuario",
+                      column: x => x.Id_Usuario,
+                      principalTable: "AspNetUsers",
+                      principalColumn: "Id",
+                      onDelete: ReferentialAction.Restrict);
+                  table.ForeignKey(
+                      name: "FK_AspNetUserandDocs_AspNetUserDocuments_IdDocumento",
+                      column: x => x.Id_Documento,
+                      principalTable: "AspNetUserDocuments",
+                      principalColumn: "Id",
+                      onDelete: ReferentialAction.Restrict);
+              });
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
@@ -169,11 +199,29 @@ namespace AdminLTE.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            //migrationBuilder.AddForeignKey(
+            //name: "FK_AspNetUsers_AspNetUserDocuments_IdDocumento",
+            //table: "AspNetUsers",
+            //column: "Id_Documento",
+            //principalTable: "AspNetUserDocuments",
+            //principalColumn: "Id",
+            //onDelete: ReferentialAction.Restrict);
+
             migrationBuilder.CreateIndex(
                 name: "UserDocumentsIndex",
                 table: "AspNetUserDocuments",
                 column: "Id",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserDocuments_IdUsuario",
+                table: "AspNetUserDocuments",
+                column: "Id_Usuario");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUser_IdDocuments",
+                table: "AspNetUsers",
+                column: "Id_Documento");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
@@ -233,6 +281,13 @@ namespace AdminLTE.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+               name: "AspNetUserandDocs");            
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_AspNetUsers_AspNetUserDocuments_IdDocumento",
+                table: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

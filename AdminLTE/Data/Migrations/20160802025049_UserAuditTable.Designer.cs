@@ -18,59 +18,87 @@ namespace AdminLTE.Data.Migrations
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("AdminLTE.Models.ApplicationUser", b =>
-                {
-                    b.Property<string>("Id");
+            {
+                b.Property<string>("Id");
 
-                    b.Property<int>("AccessFailedCount");
+                b.Property<int>("AccessFailedCount");
 
-                    b.Property<string>("AvatarURL");
+                b.Property<string>("ConcurrencyStamp")
+                    .IsConcurrencyToken();
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken();
+                b.Property<string>("Email")
+                    .HasAnnotation("MaxLength", 256);
 
-                    b.Property<string>("Email")
-                        .HasAnnotation("MaxLength", 256);
+                b.Property<bool>("EmailConfirmed");
 
-                    b.Property<bool>("EmailConfirmed");
+                b.Property<bool>("LockoutEnabled");
 
-                    b.Property<string>("FirstName");
+                b.Property<DateTimeOffset?>("LockoutEnd");
 
-                    b.Property<string>("LastName");
+                b.Property<string>("NormalizedEmail")
+                    .HasAnnotation("MaxLength", 256);
 
-                    b.Property<bool>("LockoutEnabled");
+                b.Property<string>("NormalizedUserName")
+                    .HasAnnotation("MaxLength", 256);
 
-                    b.Property<DateTimeOffset?>("LockoutEnd");
+                b.Property<string>("PasswordHash");
 
-                    b.Property<string>("NormalizedEmail")
-                        .HasAnnotation("MaxLength", 256);
+                b.Property<string>("PhoneNumber");
 
-                    b.Property<string>("NormalizedUserName")
-                        .HasAnnotation("MaxLength", 256);
+                b.Property<bool>("PhoneNumberConfirmed");
 
-                    b.Property<string>("PasswordHash");
+                b.Property<string>("SecurityStamp");
 
-                    b.Property<string>("PhoneNumber");
+                b.Property<bool>("TwoFactorEnabled");
 
-                    b.Property<bool>("PhoneNumberConfirmed");
+                b.Property<string>("UserName")
+                    .HasAnnotation("MaxLength", 256);
 
-                    b.Property<string>("SecurityStamp");
+                b.Property<int>("Id_Documento");
 
-                    b.Property<bool>("TwoFactorEnabled");
+                b.HasIndex("Id_Documento")
+                  .HasName("Id_DocumentoIndex");
 
-                    b.Property<string>("UserName")
-                        .HasAnnotation("MaxLength", 256);
+                b.HasKey("Id");
 
-                    b.HasKey("Id");
+                b.HasIndex("NormalizedEmail")
+                    .HasName("EmailIndex");
 
-                    b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
+                b.HasIndex("NormalizedUserName")
+                    .IsUnique()
+                    .HasName("UserNameIndex");
 
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasName("UserNameIndex");
+                b.ToTable("AspNetUsers");
+            });
+            modelBuilder.Entity("AdminLTE.Models.Docs", b =>
+            {
+                b.Property<int>("Id")
+                 .ValueGeneratedOnAdd();
+                b.Property<string>("Id_Usuario");
 
-                    b.ToTable("AspNetUsers");
-                });
+                b.Property<string>("Tipo_Documento");
+
+                b.Property<string>("Asunto");
+
+                b.Property<string>("Anexo");
+
+                b.Property<string>("Via");
+
+                b.Property<DateTimeOffset?>("Fecha_Creado");
+
+                b.Property<DateTimeOffset?>("Fecha_Limite");
+
+                b.Property<string>("Descripcion");
+
+                b.Property<string>("Firma");
+
+                b.HasKey("Id");
+
+                b.HasIndex("Id_Usuario")
+                    .HasName("UserDocumentsIndex");
+
+                b.ToTable("AspNetUserDocuments");
+            });
 
             modelBuilder.Entity("AdminLTE.Models.UserAudit", b =>
                 {

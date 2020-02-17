@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20200217141649_Stark.cs" />
+    <Compile Remove="Data\Migrations\20200217141649_Stark.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200217142212_stark.cs" />
+    <Compile Remove="Data\Migrations\20200217142212_stark.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="wwwroot\**\*;Views\**\*;Areas\**\Views">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>

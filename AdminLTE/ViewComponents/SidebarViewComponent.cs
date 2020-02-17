@@ -28,6 +28,7 @@ namespace AdminLTE.ViewComponents
             //sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Error, Tuple.Create(0, 0, 1)));
             sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.About, Tuple.Create(0, 1, 0)));
             sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Contact, Tuple.Create(1, 0, 0)));
+            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Register, Tuple.Create(1, 1, 1)));
            
 
             if (User.IsInRole("SuperAdmins"))

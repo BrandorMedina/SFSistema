@@ -11,7 +11,7 @@ namespace AdminLTE.Models
     {
         [Required]
         public int Id { get; set; }
-        public int Id_Usuario { get; set; }
+        public string Id_Usuario { get; set; }
         public string Tipo_documento { get; set; }
         public string Asunto { get; set; }
         public string Via { get; set; }

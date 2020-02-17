@@ -67,7 +67,12 @@
                     @*<div class="form-group forget-password">
             <a href="#">Forget Password</a>
         </div>*@
+                    <div class="col-xs-5">
+                        <i class="fa fa-check"></i>
+                        <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Sign Up</a>
+                    </div>
                 </form>
+
             </div>
         </div>
     </div>
