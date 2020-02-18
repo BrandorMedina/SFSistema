@@ -22,5 +22,7 @@ namespace AdminLTE.Data
         }
 
         public DbSet<Docs> AspNetUserDocuments { get; set; }
+
+        public DbSet<ApplicationUser> AspNetUsers { get; set; }
     }
 }

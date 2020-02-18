@@ -14,24 +14,23 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Id_Usuario" class="control-label"></label>
-                <input asp-for="Id_Usuario" class="form-control" />
+                <label asp-for="Id_Usuario" class="control-label">Personal para el documento</label>
+                <select asp-for="Id_Usuario"
+                        class="form-control"
+                        asp-items="@(new SelectList(@ViewBag.stateList1,"Id", "NormalizedEmail"))">
+                </select>
+                @*<input asp-for="Id_Usuario" class="form-control" />*@
                 <span asp-validation-for="Id_Usuario" class="text-danger"></span>
-            </div>
-            <div class="">
-                      <!-- select -->
-                      <div class="form-group">
-                        <label>Select</label>
-                        <select class="form-control">
-                          <option>option 1</option>
-                          <option>option 2</option>
-                        </select>
-                      </div>
-
+                
             </div>
             <div class="form-group">
-                <label asp-for="Tipo_documento" class="control-label"></label>
-                <input asp-for="Tipo_documento" class="form-control" />
+                <label asp-for="Tipo_documento" class="control-label">Tipo de Documento</label>
+                <select asp-for="Tipo_documento" class="form-control">
+                    <option></option>
+                    <option>otro</option>
+                    <option>Viaticos</option>
+                    <option>Carta</option>
+                </select>
                 <span asp-validation-for="Tipo_documento" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -54,18 +53,19 @@
                 <input asp-for="Descripcion" class="form-control" />
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Fecha_Creado" class="control-label"></label>
-                <input asp-for="Fecha_Creado" class="form-control" />
-                <span asp-validation-for="Fecha_Creado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Fecha_Limite" class="control-label"></label>
+                <label asp-for="Fecha_Limite" class="control-label">Fecha Limite</label>
                 <input asp-for="Fecha_Limite" class="form-control" />
                 <span asp-validation-for="Fecha_Limite" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div class="form-group" style="visibility:hidden">
+                <label asp-for="Fecha_Creado" class="control-label">Fecha Creado</label>
+                <input type="datetime" asp-for="Fecha_Creado" class="form-control" value="@DateTimeOffset.Now" DISABLED />
+                <span asp-validation-for="Fecha_Creado" class="text-danger"></span>
             </div>
         </form>
     </div>

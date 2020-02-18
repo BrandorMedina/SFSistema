@@ -12,5 +12,7 @@ namespace AdminLTE.Models
         public string Position { get; set; }
         public string NickName { get; set; }
         public int Id_Documento { get; set; }
+
+        
     }
 }

@@ -46,13 +46,22 @@ namespace AdminLTE.Controllers
         // GET: Docs/Create
         public IActionResult Create()
         {
+            DateTime localDate = DateTime.Now;
+            List<ApplicationUser> stateList = new List<ApplicationUser>();
+
+            stateList = (from produc in _context.AspNetUsers
+                         select produc).ToList();
+            stateList.Insert(0, new ApplicationUser { Id = "", NormalizedEmail = ""});
+
+
+            ViewBag.stateList1 = stateList;
             return View();
         }
 
-        // POST: Docs/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+    // POST: Docs/Create
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Id_Usuario,Tipo_documento,Asunto,Via,Anexo,Descripcion,Fecha_Creado,Fecha_Limite")] Docs docs)
         {
@@ -64,6 +73,7 @@ namespace AdminLTE.Controllers
             }
             return View(docs);
         }
+      
 
         // GET: Docs/Edit/5
         public async Task<IActionResult> Edit(int? id)
