@@ -28,6 +28,8 @@ namespace AdminLTE.Controllers
         // GET: Docs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            AddBreadcrumb("Lista de Documentos", "/Docs/Index");
+            AddBreadcrumb("Detalles", "");
             if (id == null)
             {
                 return NotFound();
@@ -46,7 +48,7 @@ namespace AdminLTE.Controllers
         // GET: Docs/Create
         public IActionResult Create()
         {
-            AddBreadcrumb("Crear Documento", "/Docs/Index");
+            AddBreadcrumb("Lista de Documentos", "/Docs/Index");
             AddBreadcrumb("Crear Documento", "");
             DateTime localDate = DateTime.Now;
             List<ApplicationUser> stateList = new List<ApplicationUser>();
@@ -80,6 +82,8 @@ namespace AdminLTE.Controllers
         // GET: Docs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            AddBreadcrumb("Lista de Documentos", "/Docs/Index");
+            AddBreadcrumb("Editar", "");
             if (id == null)
             {
                 return NotFound();
@@ -131,6 +135,8 @@ namespace AdminLTE.Controllers
         // GET: Docs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            AddBreadcrumb("Lista de Documentos", "/Docs/Index");
+            AddBreadcrumb("Eliminar", "");
             if (id == null)
             {
                 return NotFound();
