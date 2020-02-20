@@ -10,7 +10,7 @@ using AdminLTE.Models;
 
 namespace AdminLTE.Controllers
 {
-    public class DocsController : Controller
+    public class DocsController : BaseController
     {
         private readonly ApplicationDbContext _context;
 
@@ -46,12 +46,14 @@ namespace AdminLTE.Controllers
         // GET: Docs/Create
         public IActionResult Create()
         {
+            AddBreadcrumb("Crear Documento", "/Docs/Index");
+            AddBreadcrumb("Crear Documento", "");
             DateTime localDate = DateTime.Now;
             List<ApplicationUser> stateList = new List<ApplicationUser>();
 
             stateList = (from produc in _context.AspNetUsers
                          select produc).ToList();
-            stateList.Insert(0, new ApplicationUser { Id = "", NormalizedEmail = ""});
+            stateList.Insert(0, new ApplicationUser { Id = "", Email = ""});
 
 
             ViewBag.stateList1 = stateList;

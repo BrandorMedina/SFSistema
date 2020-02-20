@@ -1,80 +1,146 @@
 ﻿@model AdminLTE.Models.Docs
-
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Documento";
 }
+    <div class="card card-warning m-3">
+        
+        <div class="card-header">
+            <h3 class="card-title">Nuevo Documento</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <form asp-action="Create">
 
-<h1>Create</h1>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label asp-for="Id_Usuario" class="control-label">Personal para el documento</label>
+                            <select asp-for="Id_Usuario"
+                                    class="form-control"
+                                    asp-items="@(new SelectList(@ViewBag.stateList1,"Id", "Email"))">
+                            </select>
+                            @*<input asp-for="Id_Usuario" class="form-control" />*@
+                            <span asp-validation-for="Id_Usuario" class="text-danger"></span>
+                        </div>
+                       
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label>Multiple</label>
+                            <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                <option data-select2-id="29">Alabama</option>
+                                <option data-select2-id="30">Alaska</option>
+                                <option data-select2-id="31">California</option>
+                                <option data-select2-id="32">Delaware</option>
+                                <option data-select2-id="33">Tennessee</option>
+                                <option data-select2-id="34">Texas</option>
+                                <option data-select2-id="35">Washington</option>
+                            </select>
+                            <span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="8" style="width: 100%;">
+                                <span class="selection">
+                                    <span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false">
+                                        <ul class="select2-selection__rendered">
+                                            <li class="select2-search select2-search--inline">
+                                                <input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="Select a State" style="width: 382.5px;">
+                                            </li>
+                                        </ul>
+                                    </span>
+                                </span>
+                                <span class="dropdown-wrapper" aria-hidden="true">
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
-<h4>Docs</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id_Usuario" class="control-label">Personal para el documento</label>
-                <select asp-for="Id_Usuario"
-                        class="form-control"
-                        asp-items="@(new SelectList(@ViewBag.stateList1,"Id", "NormalizedEmail"))">
-                </select>
-                @*<input asp-for="Id_Usuario" class="form-control" />*@
-                <span asp-validation-for="Id_Usuario" class="text-danger"></span>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label asp-for="Tipo_documento" class="control-label">Tipo de Documento</label>
+                            <select asp-for="Tipo_documento" class="form-control">
+                                <option></option>
+                                <option>otro</option>
+                                <option>Viaticos</option>
+                                <option>Carta</option>
+                            </select>
+                            <span asp-validation-for="Tipo_documento" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label asp-for="Asunto" class="control-label"></label>
+                            <input asp-for="Asunto" class="form-control" />
+                            <span asp-validation-for="Asunto" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label asp-for="Fecha_Limite" class="control-label">Fecha Limite</label>
+                            <input asp-for="Fecha_Limite" class="form-control" />
+                            <span asp-validation-for="Fecha_Limite" class="text-danger"></span>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="far fa-clock"></i></span>
+                            </div>
+                            <input type="text" class="form-control float-right" id="reservationtime">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label asp-for="Via" class="control-label"></label>
+                            <input asp-for="Via" class="form-control" />
+                            <span asp-validation-for="Via" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label asp-for="Anexo" class="control-label"></label>
+                            <input asp-for="Anexo" class="form-control" />
+                            <span asp-validation-for="Anexo" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- textarea -->
+                                <div class="form-group">
+                                    <label asp-for="Descripcion">Descripción</label>
+                                    <textarea class="form-control" rows="4" asp-validation-for="Descripcion" placeholder="Introducir descripción del documento "></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2 mx-sm-auto">
+                        <div class="form-group">
+                            <button type="submit" value="Crear" class="btn btn-block btn-warning">Crear</button>
+                        </div>
+                    </div>
+                </div>
                 
-            </div>
-            <div class="form-group">
-                <label asp-for="Tipo_documento" class="control-label">Tipo de Documento</label>
-                <select asp-for="Tipo_documento" class="form-control">
-                    <option></option>
-                    <option>otro</option>
-                    <option>Viaticos</option>
-                    <option>Carta</option>
-                </select>
-                <span asp-validation-for="Tipo_documento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Asunto" class="control-label"></label>
-                <input asp-for="Asunto" class="form-control" />
-                <span asp-validation-for="Asunto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Via" class="control-label"></label>
-                <input asp-for="Via" class="form-control" />
-                <span asp-validation-for="Via" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Anexo" class="control-label"></label>
-                <input asp-for="Anexo" class="form-control" />
-                <span asp-validation-for="Anexo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
-                <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
 
-            <div class="form-group">
-                <label asp-for="Fecha_Limite" class="control-label">Fecha Limite</label>
-                <input asp-for="Fecha_Limite" class="form-control" />
-                <span asp-validation-for="Fecha_Limite" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-            <div class="form-group" style="visibility:hidden">
-                <label asp-for="Fecha_Creado" class="control-label">Fecha Creado</label>
-                <input type="datetime" asp-for="Fecha_Creado" class="form-control" value="@DateTimeOffset.Now" DISABLED />
-                <span asp-validation-for="Fecha_Creado" class="text-danger"></span>
-            </div>
-        </form>
+                <div class="form-group" style="visibility:hidden; position:absolute">
+                    <label asp-for="Fecha_Creado" class="control-label">Fecha Creado</label>
+                    <input type="datetime" asp-for="Fecha_Creado" class="form-control" value="@DateTimeOffset.Now" />
+                    <span asp-validation-for="Fecha_Creado" class="text-danger"></span>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
