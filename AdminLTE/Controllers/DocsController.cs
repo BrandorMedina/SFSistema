@@ -33,14 +33,14 @@ namespace AdminLTE.Controllers
         {
             AddBreadcrumb("Lista de Documentos", "/Docs/Index");
             AddBreadcrumb("Detalles", "");
-            List<ApplicationUser> stateList = new List<ApplicationUser>();
-
-            stateList = (from produc in _context.AspNetUsers
-                         select produc).ToList();
-            stateList.Insert(0, new ApplicationUser { Id = "", Email = "" });
-
-
-            ViewBag.stateList1 = stateList;
+            ViewBag.ClarderSousSecteurID = (from p in _context.AspNetUsers
+                                            join f in _context.AspNetUsers
+                                            on p.Id equals f.Id
+                                            select new SelectListItem
+                                            {
+                                                Value = p.Id,
+                                                Text = f.FirstName + " " + f.LastName + "(" + f.Email + ")"
+                                            }).Distinct();
             if (id == null)
             {
                 return NotFound();
@@ -61,14 +61,24 @@ namespace AdminLTE.Controllers
         {
             AddBreadcrumb("Lista de Documentos", "/Docs/Index");
             AddBreadcrumb("Crear Documento", "");
-            List<ApplicationUser> stateList = new List<ApplicationUser>();
+            //List<ApplicationUser> stateList = new List<ApplicationUser>();
 
-            stateList = (from produc in _context.AspNetUsers
-                         select produc).ToList();
-            stateList.Insert(0, new ApplicationUser { Id = "", Email = ""});
+            //stateList = (from produc in _context.AspNetUsers
+            //             select produc).ToList();
+            //stateList.Insert(0, new ApplicationUser { Id = "", LastName = "", FirstName= ""});
+
+            //ViewBag.stateList1 = stateList;
 
 
-            ViewBag.stateList1 = stateList;
+            ViewBag.ClarderSousSecteurID = (from p in _context.AspNetUsers
+                                            join f in _context.AspNetUsers
+                                            on p.Id equals f.Id
+                                            select new SelectListItem
+                                            {
+                                                Value = p.Id,
+                                                Text = f.FirstName + " " + f.LastName + "(" +f.Email +")"
+                                            }).Distinct();
+
             return View();
         }
 
@@ -94,12 +104,14 @@ namespace AdminLTE.Controllers
         {
             AddBreadcrumb("Lista de Documentos", "/Docs/Index");
             AddBreadcrumb("Editar", "");
-            List<ApplicationUser> stateList = new List<ApplicationUser>();
-
-            stateList = (from produc in _context.AspNetUsers
-                         select produc).ToList();
-            stateList.Insert(0, new ApplicationUser { Id = "", Email = "" });
-            ViewBag.stateList1 = stateList;
+            ViewBag.ClarderSousSecteurID = (from p in _context.AspNetUsers
+                                            join f in _context.AspNetUsers
+                                            on p.Id equals f.Id
+                                            select new SelectListItem
+                                            {
+                                                Value = p.Id,
+                                                Text = f.FirstName + " " + f.LastName + "(" + f.Email + ")"
+                                            }).Distinct();
 
             if (id == null)
             {
@@ -154,14 +166,14 @@ namespace AdminLTE.Controllers
         {
             AddBreadcrumb("Lista de Documentos", "/Docs/Index");
             AddBreadcrumb("Eliminar", "");
-            List<ApplicationUser> stateList = new List<ApplicationUser>();
-
-            stateList = (from produc in _context.AspNetUsers
-                         select produc).ToList();
-            stateList.Insert(0, new ApplicationUser { Id = "", Email = "" });
-
-
-            ViewBag.stateList1 = stateList;
+            ViewBag.ClarderSousSecteurID = (from p in _context.AspNetUsers
+                                            join f in _context.AspNetUsers
+                                            on p.Id equals f.Id
+                                            select new SelectListItem
+                                            {
+                                                Value = p.Id,
+                                                Text = f.FirstName + " " + f.LastName + "(" + f.Email + ")"
+                                            }).Distinct();
             if (id == null)
             {
                 return NotFound();

@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label>Personal para el documento</label>
                         <select asp-for="Id_Usuario" class="Selectpersonal form-control" multiple="multiple" data-placeholder="Seleciona el Personal" style="width: 100%;"
-                                asp-items="@(new SelectList(@ViewBag.stateList1,"Id", "Email"))">
+                                asp-items="@(IEnumerable<SelectListItem>)@ViewBag.ClarderSousSecteurID">
                         </select>
                     </div>
                 </div>
