@@ -7,102 +7,489 @@
 </environment>
 
 <environment names="Development">
-    <script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.js" asp-append-version="true" ></script>
-    <script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js" asp-append-version="true" ></script>
+    <script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.js" asp-append-version="true"></script>
+    <script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js" asp-append-version="true"></script>
 </environment>
 <environment names="Staging,Production">
-    <script src="~/lib/plugins/datatables/jquery.dataTables.js" asp-append-version="true" ></script>
-    <script src="~/lib/plugins/datatables/jquery.dataTables.min.js" asp-append-version="true" ></script>
+    <script src="~/lib/plugins/datatables/jquery.dataTables.js" asp-append-version="true"></script>
+    <script src="~/lib/plugins/datatables/jquery.dataTables.min.js" asp-append-version="true"></script>
 </environment>
 
-@*<div class="box">
-    <div class="box-body table-responsive">
-        <table class="table table-condensed table-bordered table-striped" id="TableId" cellspacing="0" align="center">
-            <thead>
-                <tr>
-                    <th>Sr</th>
-                    <th>Order Track Number</th>
-                    <th>Quantity</th>
-                    <th>Product Name</th>
-                    <th>Special Offer</th>
-                    <th>Unit Price</th>
-                    <th>Unit Price Discount</th>
-                    <th>Options</th>
-                </tr>
-            </thead>
-        </table>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Bordered Table</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Task</th>
+                            <th>Progress</th>
+                            <th style="width: 40px">Label</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td>Update software</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-danger">55%</span></td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>Clean database</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-warning">70%</span></td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>Cron job running</td>
+                            <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-primary" style="width: 30%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-primary">30%</span></td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>Fix and squish bugs</td>
+                            <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-success">90%</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.card -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Condensed Full Width Table</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Task</th>
+                            <th>Progress</th>
+                            <th style="width: 40px">Label</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td>Update software</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-danger">55%</span></td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>Clean database</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-warning">70%</span></td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>Cron job running</td>
+                            <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-primary" style="width: 30%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-primary">30%</span></td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>Fix and squish bugs</td>
+                            <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-success">90%</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
     </div>
+    <!-- /.col -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Simple Full Width Table</h3>
+
+                <div class="card-tools">
+                    <ul class="pagination pagination-sm float-right">
+                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Task</th>
+                            <th>Progress</th>
+                            <th style="width: 40px">Label</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td>Update software</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-danger">55%</span></td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>Clean database</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-warning">70%</span></td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>Cron job running</td>
+                            <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-primary" style="width: 30%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-primary">30%</span></td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>Fix and squish bugs</td>
+                            <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-success">90%</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Striped Full Width Table</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Task</th>
+                            <th>Progress</th>
+                            <th style="width: 40px">Label</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td>Update software</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-danger">55%</span></td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>Clean database</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-warning">70%</span></td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>Cron job running</td>
+                            <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-primary" style="width: 30%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-primary">30%</span></td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>Fix and squish bugs</td>
+                            <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-success">90%</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
 </div>
 
-<div class="box">
-    <div class="box-body">
-        <form asp-controller="Home" asp-action="Index" method="post">
-            <button class="btn btn-sm btn-primary" type="submit">Submit</button>
-            <button class="btn btn-sm btn-primary" type="submit">Submit</button>
-            <button class="btn btn-sm btn-primary" type="submit">Submit</button>
-        </form>
-    </div>
-</div>*@
-<div class="col-6 col-md-3 text-center">
-    <input type="text" class="knob" value="100" data-skin="tron" data-thickness="0.2"
-           data-angleArc="250" data-angleOffset="-125" data-width="120" data-height="120"
-           data-fgColor="#00c0ef">
+<section class="content">
+    <div class="container-fluid">
+        <!-- row -->
+        <div class="row">
+            <div class="col-12">
+                <!-- jQuery Knob -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="far fa-chart-bar"></i>
+                            jQuery Knob
+                        </h3>
 
-    <div class="knob-label">data-angleArc="250"</div>
-    </div>
-    <script>
-        $(document).ready(function () {
-            $('#TableId').DataTable(
-                {
-                    searchDelay: 500,
-                    "columnDefs": [
-                        { "width": "5%", "targets": [0] },
-                        { "className": "text-center", "targets": [0, 1, 2, 3, 4, 5, 6] },
-                        { "defaultContent": "<button class='btn btn-primary btn-sm'>Details</button>", "targets": [7] },
-                        { "searchable": false, "targets": [0, 2, 4, 5, 6] },
-                        {
-                            "render": function (data, type, row) {
-                                return ' <label class="badge label-primary">' + data + '</label>';
-                            },
-                            "targets": [4]
-                        },
-                        {
-                            "render": function (data, type, row) {
-                                if (row['quantity'] > 1)
-                                    return ' <label class="badge label-success">' + row['quantity'] + '</label>'
-                                else
-                                    return ' <label class="badge label-default">' + row['quantity'] + '</label>';
-                            },
-                            "targets": [2]
-                        },
-                    ],
-                    "language":
-                    {
-                        "processing": "<div class=''><i class='fa fa-cog fa-spin site-loader-color'></i></div>",
-                        "search": "filter",
-                        "searchPlaceholder": "track num or product"
-                    },
-                    "processing": true,
-                    "serverSide": true,
-                    "ajax":
-                    {
-                        "url": "/Home/GetData",
-                        "type": "POST",
-                        "dataType": "JSON"
-                    },
-                    "columns": [
-                        { "data": "sr" },
-                        { "data": "ordertracknumber" },
-                        { "data": "quantity" },
-                        { "data": "productname" },
-                        { "data": "specialoffer" },
-                        { "data": "unitprice" },
-                        { "data": "unitpricediscount" },
-                    ],
-                    "dom": "<'row'<'col-sm-6'l><'col-sm-6'<'#buttonContainer.site-datatable-button-container'>f>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-                });
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="30" data-width="90" data-height="90" data-fgColor="#3c8dbc">
 
-            $("#buttonContainer").addClass("float-right").append("<button class='btn btn-sm bg-success'>Create</button>");
+                                <div class="knob-label">New Visitors</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="70" data-width="90" data-height="90" data-fgColor="#f56954">
 
-        });
-    </script>
+                                <div class="knob-label">Bounce Rate</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="-80" data-min="-150" data-max="150" data-width="90"
+                                       data-height="90" data-fgColor="#00a65a">
+
+                                <div class="knob-label">Server Load</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="40" data-width="90" data-height="90" data-fgColor="#00c0ef">
+
+                                <div class="knob-label">Disk Space</div>
+                            </div>
+                            <!-- ./col -->
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <input type="text" class="knob" value="90" data-width="90" data-height="90" data-fgColor="#932ab6">
+
+                                <div class="knob-label">Bandwidth</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-6 text-center">
+                                <input type="text" class="knob" value="50" data-width="90" data-height="90" data-fgColor="#39CCCC">
+
+                                <div class="knob-label">CPU</div>
+                            </div>
+                            <!-- ./col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="far fa-chart-bar"></i>
+                            jQuery Knob Different Sizes
+                        </h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="30" data-width="90" data-height="90" data-fgColor="#3c8dbc"
+                                       data-readonly="true">
+
+                                <div class="knob-label">data-width="90"</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="30" data-width="120" data-height="120"
+                                       data-fgColor="#f56954">
+
+                                <div class="knob-label">data-width="120"</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90"
+                                       data-fgColor="#00a65a">
+
+                                <div class="knob-label">data-thickness="0.1"</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125"
+                                       value="30" data-width="120" data-height="120" data-fgColor="#00c0ef">
+
+                                <div class="knob-label">data-angleArc="250"</div>
+                            </div>
+                            <!-- ./col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="far fa-chart-bar"></i>
+                            jQuery Knob Tron Style
+                        </h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="80" data-skin="tron" data-thickness="0.2" data-width="90"
+                                       data-height="90" data-fgColor="#3c8dbc" data-readonly="true">
+
+                                <div class="knob-label">data-width="90"</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="60" data-skin="tron" data-thickness="0.2" data-width="120"
+                                       data-height="120" data-fgColor="#f56954">
+
+                                <div class="knob-label">data-width="120"</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="10" data-skin="tron" data-thickness="0.1" data-width="90"
+                                       data-height="90" data-fgColor="#00a65a">
+
+                                <div class="knob-label">data-thickness="0.1"</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-6 col-md-3 text-center">
+                                <input type="text" class="knob" value="100" data-skin="tron" data-thickness="0.2"
+                                       data-angleArc="250" data-angleOffset="-125" data-width="120" data-height="120"
+                                       data-fgColor="#00c0ef">
+
+                                <div class="knob-label">data-angleArc="250"</div>
+                            </div>
+                            <!-- ./col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+    </div><!-- /.container-fluid -->
+</section>
