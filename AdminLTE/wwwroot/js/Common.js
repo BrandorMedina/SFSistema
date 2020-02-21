@@ -1,3 +1,9 @@
-﻿$('#myModal').on('show.bs.modal', function (e) {
-    if (!data) return e.preventDefault() // stops modal from being shown
-})
+﻿$(document).ready(function () {
+    //Initialize Select2 Elements
+    $('.Selectpersonal').select2()
+    $('#reservation').datepicker();
+});
+
+$(function () {
+   
+});

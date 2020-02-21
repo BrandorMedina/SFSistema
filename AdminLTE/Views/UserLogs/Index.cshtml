@@ -9,50 +9,75 @@
 }
 
 <h2>@ViewData["Title"].</h2>
+<div class="card-body  card-dark ">
+    <div class="row">
+        <div class=" col-sm">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">@ViewData["Title"]</h3>
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-<br>
-<table class="table table-condensed table-bordered table-striped" id="myTable">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserAuditId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Timestamp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuditEvent)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IpAddress)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserAuditId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Timestamp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AuditEvent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IpAddress)
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+
+                <div class="card-body table-responsive p-0" style="height: 550px;">
+                    <table class="table table-condensed table-bordered table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserAuditId)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserId)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Timestamp)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AuditEvent)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IpAddress)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserAuditId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Timestamp)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AuditEvent)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IpAddress)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script>
     $(document).ready(function () {

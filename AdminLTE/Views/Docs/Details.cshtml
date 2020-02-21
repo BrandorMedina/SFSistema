@@ -3,64 +3,106 @@
 @{
     ViewData["Title"] = "Details";
 }
+<div class="card card-dark m-3">
 
-<h1>Details</h1>
+    <div class="card-header">
+        <h3 class="card-title">Eliminar Documento</h3> 
+        
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
 
-<div>
-    <h4>Docs</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id_Usuario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id_Usuario)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tipo_documento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tipo_documento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Asunto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Asunto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Via)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Via)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Anexo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Anexo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha_Creado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fecha_Creado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha_Limite)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fecha_Limite)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+                    <label>Personal para el documento</label>
+                    <select asp-for="Id_Usuario" class="Selectpersonal form-control" multiple="multiple" data-placeholder="Seleciona el Personal" style="width: 100%;"
+                            asp-items="@(new SelectList(@ViewBag.stateList1,"Id", "Email"))" disabled>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                    <label asp-for="Fecha_Creado" class="control-label">Fecha Creado</label>
+                    <input disabled type="datetime" asp-for="Fecha_Creado" class="form-control" value="@DateTimeOffset.Now" />
+                    <span asp-validation-for="Fecha_Creado" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+                    <label asp-for="Fecha_Limite" class="control-label">Fecha Limite</label>
+                    <input disabled asp-for="Fecha_Limite" class="form-control" />
+                    <span asp-validation-for="Fecha_Limite" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                    <label asp-for="Tipo_documento" class="control-label">Tipo de Documento</label>
+                    <select disabled asp-for="Tipo_documento" class="form-control">
+                        <option></option>
+                        <option>otro</option>
+                        <option>Viaticos</option>
+                        <option>Carta</option>
+                    </select>
+                    <span asp-validation-for="Tipo_documento" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="form-group">
+                    <label asp-for="Asunto" class="control-label"></label>
+                    <input disabled asp-for="Asunto" class="form-control" />
+                    <span asp-validation-for="Asunto" class="text-danger"></span>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                    <label asp-for="Via" class="control-label"></label>
+                    <input disabled asp-for="Via" class="form-control" />
+                    <span asp-validation-for="Via" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                    <label asp-for="Anexo" class="control-label"></label>
+                    <input disabled asp-for="Anexo" class="form-control" />
+                    <span asp-validation-for="Anexo" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- textarea -->
+                        <div class="form-group">
+                            <label asp-for="Descripcion">Descripción</label>
+                            <textarea disabled class="form-control" rows="4" asp-for="Descripcion" placeholder="Introducir descripción del documento "></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 mx-sm-auto">
+                <div class="form-group">
+                    <a class="text-right text-primary font-weight-bold" asp-action="Edit" asp-route-id="@Model.Id"> Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

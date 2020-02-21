@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Crear Documento";
 }
-    <div class="card card-warning m-3">
+    <div class="card card-blue m-3">
         
         <div class="card-header">
             <h3 class="card-title">Nuevo Documento</h3>
@@ -12,43 +12,25 @@
             <form asp-action="Create">
 
                 <div class="row">
-                    <div class="col-sm">
+                    @*<div class="col-sm">
                         <div class="form-group">
                             <label asp-for="Id_Usuario" class="control-label">Personal para el documento</label>
                             <select asp-for="Id_Usuario"
                                     class="form-control"
                                     asp-items="@(new SelectList(@ViewBag.stateList1,"Id", "Email"))">
                             </select>
-                            @*<input asp-for="Id_Usuario" class="form-control" />*@
-                            <span asp-validation-for="Id_Usuario" class="text-danger"></span>
-                        </div>
-                       
-                    </div>
+                            <input asp-for="Id_Usuario" class="form-control" />
+                                    <span asp-validation-for="Id_Usuario" class="text-danger"></span>
+                                </div>
+
+                    </div>*@
+                    
                     <div class="col-sm">
                         <div class="form-group">
-                            <label>Multiple</label>
-                            <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
-                                <option data-select2-id="29">Alabama</option>
-                                <option data-select2-id="30">Alaska</option>
-                                <option data-select2-id="31">California</option>
-                                <option data-select2-id="32">Delaware</option>
-                                <option data-select2-id="33">Tennessee</option>
-                                <option data-select2-id="34">Texas</option>
-                                <option data-select2-id="35">Washington</option>
+                            <label>Personal para el documento</label>
+                            <select asp-for="Id_Usuario" class="Selectpersonal form-control" multiple="multiple" data-placeholder="Seleciona el Personal" style="width: 100%;" 
+                                    asp-items="@(new SelectList(@ViewBag.stateList1,"Id", "Email"))">
                             </select>
-                            <span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="8" style="width: 100%;">
-                                <span class="selection">
-                                    <span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false">
-                                        <ul class="select2-selection__rendered">
-                                            <li class="select2-search select2-search--inline">
-                                                <input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="Select a State" style="width: 382.5px;">
-                                            </li>
-                                        </ul>
-                                    </span>
-                                </span>
-                                <span class="dropdown-wrapper" aria-hidden="true">
-                                </span>
-                            </span>
                         </div>
                     </div>
                 </div>
@@ -78,14 +60,16 @@
                     <div class="col-sm">
                         <div class="form-group">
                             <label asp-for="Fecha_Limite" class="control-label">Fecha Limite</label>
-                            <input asp-for="Fecha_Limite" class="form-control" />
-                            <span asp-validation-for="Fecha_Limite" class="text-danger"></span>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="far fa-clock"></i></span>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </span>
+                                </div>
+                                <input id="reservation" asp-for="Fecha_Limite" class="form-control" />
+                                <span asp-validation-for="Fecha_Limite" class="text-danger" ></span>
                             </div>
-                            <input type="text" class="form-control float-right" id="reservationtime">
                         </div>
                     </div>
                 </div>

@@ -12,16 +12,19 @@ namespace AdminLTE.Controllers
 {
     public class DocsController : BaseController
     {
+
         private readonly ApplicationDbContext _context;
 
         public DocsController(ApplicationDbContext context)
         {
+            
             _context = context;
         }
 
         // GET: Docs
         public async Task<IActionResult> Index()
         {
+            AddBreadcrumb("Lista de Documentos", "");
             return View(await _context.AspNetUserDocuments.ToListAsync());
         }
 
@@ -30,6 +33,14 @@ namespace AdminLTE.Controllers
         {
             AddBreadcrumb("Lista de Documentos", "/Docs/Index");
             AddBreadcrumb("Detalles", "");
+            List<ApplicationUser> stateList = new List<ApplicationUser>();
+
+            stateList = (from produc in _context.AspNetUsers
+                         select produc).ToList();
+            stateList.Insert(0, new ApplicationUser { Id = "", Email = "" });
+
+
+            ViewBag.stateList1 = stateList;
             if (id == null)
             {
                 return NotFound();
@@ -50,7 +61,6 @@ namespace AdminLTE.Controllers
         {
             AddBreadcrumb("Lista de Documentos", "/Docs/Index");
             AddBreadcrumb("Crear Documento", "");
-            DateTime localDate = DateTime.Now;
             List<ApplicationUser> stateList = new List<ApplicationUser>();
 
             stateList = (from produc in _context.AspNetUsers
@@ -84,6 +94,13 @@ namespace AdminLTE.Controllers
         {
             AddBreadcrumb("Lista de Documentos", "/Docs/Index");
             AddBreadcrumb("Editar", "");
+            List<ApplicationUser> stateList = new List<ApplicationUser>();
+
+            stateList = (from produc in _context.AspNetUsers
+                         select produc).ToList();
+            stateList.Insert(0, new ApplicationUser { Id = "", Email = "" });
+            ViewBag.stateList1 = stateList;
+
             if (id == null)
             {
                 return NotFound();
@@ -137,6 +154,14 @@ namespace AdminLTE.Controllers
         {
             AddBreadcrumb("Lista de Documentos", "/Docs/Index");
             AddBreadcrumb("Eliminar", "");
+            List<ApplicationUser> stateList = new List<ApplicationUser>();
+
+            stateList = (from produc in _context.AspNetUsers
+                         select produc).ToList();
+            stateList.Insert(0, new ApplicationUser { Id = "", Email = "" });
+
+
+            ViewBag.stateList1 = stateList;
             if (id == null)
             {
                 return NotFound();

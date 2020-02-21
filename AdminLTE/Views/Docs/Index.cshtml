@@ -3,54 +3,71 @@
 @{
     ViewData["Title"] = "Index";
 }
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table accent-primary">
-    <thead>
-        <tr>
-            <th>
-               USUARIOS
-            </th>
-            <th>
-                TIPO DE DOCUMENTO
-            </th>
-            <th>
-               ASUNTO
-            </th>
-            <th>
-                FECHA DE CREACION
-            </th>
-            <th>
-                FECHA A ENTREGAR
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo_documento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Asunto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha_Creado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha_Limite)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="card-body  card-dark ">
+    <div class="row">
+        <div class=" col-sm">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><a asp-action="Create">Create New</a></h3>
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+
+                <div class="card-body table-responsive p-0" style="height: 300px;">
+                    <table class="table table-head-fixed table-hover">
+                        <thead>
+                            <tr>
+                                <th>USUARIOS</th>
+                                <th>TIPO DE DOCUMENTO</th>
+                                <th>ASUNTO</th>
+                                <th>FECHA DE CREACION</th>
+                                <th>FECHA A ENTREGAR</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id_Usuario)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Tipo_documento)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Asunto)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fecha_Creado)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fecha_Limite)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

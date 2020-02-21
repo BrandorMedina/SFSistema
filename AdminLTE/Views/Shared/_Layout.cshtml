@@ -44,6 +44,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
     <link href="~/lib/admin-lte/dist/css/adminlte.min.css" rel="stylesheet" />
+    <link href="~/lib/plugins/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/lib/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/lib/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="~/lib/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -121,6 +125,12 @@ desired effect
     <script src="~/lib/plugins/jquery-knob/jquery.knob.min.js"></script>
     <script src="~/lib/plugins/sparklines/sparkline.js"></script>
     <script src="~/lib/admin-lte/dist/js/adminlte.min.js"></script>
+    <script src="~/js/Common.js"></script>
+    <script src="~/lib/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/lib/plugins/moment/moment.min.js"></script>
+    <script src="~/lib/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="~/lib/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
