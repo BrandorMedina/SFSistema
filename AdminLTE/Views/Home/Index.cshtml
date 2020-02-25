@@ -1,4 +1,5 @@
-﻿<environment names="Development">
+﻿@model IEnumerable<AdminLTE.Models.Docs>
+<environment names="Development">
     <link href="~/lib/plugins/datatables-bs4/css/dataTables.bootstrap4.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/lib/plugins/datatables-bs4/css/dataTables.bootstrap4.css" rel="stylesheet" />
 </environment>
@@ -14,6 +15,7 @@
     <script src="~/lib/plugins/datatables/jquery.dataTables.js" asp-append-version="true"></script>
     <script src="~/lib/plugins/datatables/jquery.dataTables.min.js" asp-append-version="true"></script>
 </environment>
+
 <link href="~/css/dash.css" rel="stylesheet" />
 <div class="row">
     <div class="col-sm">
@@ -56,59 +58,61 @@
 
     <div class="col-sm">
         <div class="row">
-                <div class="card-body  card-dark ">
-                    <div class="row">
-                        <div class=" col-sm">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Time Over</h3>
-                                </div>
-                                <!-- /.card-header -->
-
-                                <div class="card-body table-responsive p-0" style="height: 300px;">
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            <div class="card-body">
-                                                <h6>Personal</h6> <p></p>
-                                                <h6>Tipo de documento:</h6> <p></p>
-                                                <h6>Asunto</h6><p></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-                                            <div class="card-body">
-                                                <p>dates</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            <div class="card-body">
-                                                <p>dates</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-                                            <div class="card-body">
-                                                <p>dates</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            <div class="card-body">
-                                                <p>dates</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-                                            <div class="card-body">
-                                                <p>dates</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- /.card-body -->
+            <div class="card-body  card-dark ">
+                <div class="row">
+                    <div class=" col-sm">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Time Over</h3>
                             </div>
+                            <!-- /.card-header -->
+
+                            <div class="card-body table-responsive p-0" style="height: 300px;">
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="col-sm">
+                                            <div class="card-body">
+                                                <h6>Personal</h6><p>@Html.DisplayFor(modelItem => item.Id_Usuario)</p>
+                                                <h6>Tipo de documento:</h6> <p>@Html.DisplayFor(modelItem => item.Tipo_documento)</p>
+                                                <h6>Asunto</h6><p>@Html.DisplayFor(modelItem => item.Asunto)</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
+                                            <div class="card-body">
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <div class="card-body">
+                                            <p>dates</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="card-body">
+                                            <p>dates</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <div class="card-body">
+                                            <p>dates</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="card-body">
+                                            <p>dates</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
                     </div>
                 </div>
             </div>
