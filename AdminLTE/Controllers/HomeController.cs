@@ -13,7 +13,6 @@ namespace AdminLTE.Controllers
         [HelpDefinition]
         public IActionResult Index()
         {
-            AddPageHeader("Dashboard", "");
             return View();
         }
 

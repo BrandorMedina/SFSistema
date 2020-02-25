@@ -163,11 +163,6 @@ namespace AdminLTE.Data.Migrations
                 b.Property<string>("UserName")
                     .HasAnnotation("MaxLength", 256);
 
-                b.Property<int>("Id_Documento");
-
-                b.HasIndex("Id_Documento")
-                  .HasName("Id_DocumentoIndex");
-
                 b.HasKey("Id");
 
                 b.HasIndex("NormalizedEmail")
@@ -208,17 +203,27 @@ namespace AdminLTE.Data.Migrations
 
                 b.ToTable("AspNetUserDocuments");
             });
-                 modelBuilder.Entity("AdminLTE.Models.AspNetUserandDocs", b =>
+                 modelBuilder.Entity("AdminLTE.Models.UserandDocs", b =>
                  {
                      b.Property<string>("Id_Usuario");
 
                      b.Property<int>("Id_Documento");
 
-                     b.HasIndex("Id_Usuario")
-                         .HasName("AspNetUserandDocsIndexUser");
+                     b.HasKey("Id_Usuario", "Id_Documento");
 
-                     b.HasIndex("Id_Documento")
-                        .HasName("AspNetUserandDocsIndexDocs");
+                     b.HasIndex("Id_Usuario");
+
+                     b.HasIndex("Id_Documento");
+                               
+                     b.HasOne("AdminLTE.Models.UserAndDocs")
+                       .WithMany("ApplicationUser")
+                       .HasForeignKey("Id_Usuario")
+                       .OnDelete(DeleteBehavior.Cascade);
+
+                     b.HasOne("AdminLTE.Models.UserAndDocs")
+                       .WithMany("Docs")
+                       .HasForeignKey("Id_Documento")
+                       .OnDelete(DeleteBehavior.Cascade);
 
                      b.ToTable("AspNetUserandDocs");
                  });

@@ -54,8 +54,7 @@ namespace AdminLTE.Data.Migrations
                     PhoneNumberConfirmed = table.Column<bool>(nullable: false),
                     SecurityStamp = table.Column<string>(nullable: true),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    UserName = table.Column<string>(maxLength: 256, nullable: true),
-                    Id_Documento = table.Column<int>(nullable: true)
+                    UserName = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -82,12 +81,12 @@ namespace AdminLTE.Data.Migrations
                constraints: table =>
                {
                    table.PrimaryKey("PK_AspNetUserDocuments", x => x.Id);
-                   table.ForeignKey(
-                       name: "FK_AspNetUserDocuments_AspNetUsers_IdUsuario",
-                       column: x => x.Id_Usuario,
-                       principalTable: "AspNetUsers",
-                       principalColumn: "Id",
-                       onDelete: ReferentialAction.Cascade);
+                   //table.ForeignKey(
+                   //    name: "FK_AspNetUserDocuments_AspNetUsers_IdUsuario",
+                   //    column: x => x.Id_Usuario,
+                   //    principalTable: "AspNetUsers",
+                   //    principalColumn: "Id",
+                   //    onDelete: ReferentialAction.Cascade);
                });
 
             migrationBuilder.CreateTable(
@@ -99,6 +98,8 @@ namespace AdminLTE.Data.Migrations
               },
               constraints: table =>
               {
+                  table.PrimaryKey("PK_AspNetUserUseranDocs", x => new { x.Id_Usuario, x.Id_Documento});
+
                   table.ForeignKey(
                       name: "FK_AspNetUserandDocs_AspNetUsers_IdUsuario",
                       column: x => x.Id_Usuario,
@@ -208,20 +209,19 @@ namespace AdminLTE.Data.Migrations
             //onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.CreateIndex(
-                name: "UserDocumentsIndex",
-                table: "AspNetUserDocuments",
-                column: "Id",
-                unique: true);
+                name: "IX_UserandDocs_User",
+                table: "AspNetUserandDocs",
+                column: "Id_Usuario");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserandDocs_Doc",
+                table: "AspNetUserandDocs",
+                column: "Id_Documento");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserDocuments_IdUsuario",
                 table: "AspNetUserDocuments",
                 column: "Id_Usuario");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUser_IdDocuments",
-                table: "AspNetUsers",
-                column: "Id_Documento");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
